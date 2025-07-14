@@ -391,7 +391,7 @@ section + section {
 }
 
 .slider {
-  width: 100vw; /* viewport width penuh */
+  width: 100%;
   overflow: hidden;
   position: relative;
   height: 120px;
@@ -399,14 +399,18 @@ section + section {
 
 .slide-track {
   display: flex;
+  width: calc(250px * 18); /* 9 logo x 2 = 18. Ubah jika jumlah slide beda */
   animation: scroll 30s linear infinite;
-  width: max-content; /* otomatis menyesuaikan isi */
 }
 
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(calc(-250px * 9)); }
+}
 
 .slide {
-  height: 100px;
   width: 250px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
